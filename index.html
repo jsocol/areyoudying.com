@@ -23,8 +23,36 @@
   h2 {
     font-size: 96px;
   }
+  .answer-container {
+    height: 120px;
+  }
   .answer {
     display: none;
+  }
+  .quotes {
+    margin: 16px auto;
+    max-width: 600px;
+    text-align: left;
+  }
+  blockquote {
+    display: none;
+  }
+  .quotes blockquote:first-child {
+    display: block;
+  }
+  q {
+    display: block;
+  }
+  cite {
+    display: block;
+    text-align: right;
+  }
+  .death {
+    font-variant: small-caps;
+  }
+  .death:before,
+  .death:after {
+    content: "";
   }
   </style>
 </head>
@@ -62,8 +90,42 @@
       </p>
     </form>
   </div>
-  <div class="answer">
-    <h2>YES</h2>
+  <div class="answer-container">
+    <h2 class="answer">YES</h2>
+  </div>
+  <div class="quotes">
+    <blockquote>
+      <q class="death">What can the harvest hope for, if not for the care of the Reaper Man?</q>
+    </blockquote>
+    <blockquote class="pterry">
+      <q class="granny">Am I dyin'?</q>
+      <q class="death">Yes.</q>
+      <q class="granny">Will I die?</q>
+      <q class="death">Yes.</q>
+      <q class="granny">But from your point of view, everyone is dying and everyone will die, right?</q>
+      <q class="death">Yes.</q>
+      <q class="granny">So you aren't actually bein' a lot of help, strictly speakin'.</q>
+    </blockquote>
+    <blockquote class="pterry">
+      <q class="death">The death of the warrior or the old man or the little child, this I understand, and I take away the pain and end the suffering. I do not understand this death-of-the-mind.</q>
+    </blockquote>
+    <blockquote>
+      <q class="death">That’s mortals for you. They’ve only got a few years in this world and they spend them all in making things complicated for themselves.</q>
+    </blockquote>
+    <blockquote>
+      <q class="death">No one gets pardoned for living.</q>
+    </blockquote>
+    <blockquote>
+      <q>And what would humans be without love?</q>
+      <q class="death">Rare.</q>
+    </blockquote>
+    <blockquote>
+      <q class="death">There is no justice, there is just us</q>
+    </blockquote>
+    <blockquote>
+      <q class="death">People's whole lives do pass in front of their eyes before they die. The process is called 'living'.</q>
+    </blockquote>
+    <cite>&mdash; Sir Terry Pratchett</cite>
   </div>
   <script>
   (function(d,t,l,c,g,q,a,s,p,n,b,o,v,e,x,h,L,$,y,i,j,k,m) {
@@ -77,6 +139,14 @@
     k=$('[name=month]')[0];
     //TODO k[l](g,function(){j=m(k[o+'s'][k.selectedIndex][v]);if(k[o+'s'][L]+1>j){}},t);
   })(document,true,'addEventListener','click','change','.question','.answer','style','display','none','block','option','value','createElement','textContent','appendChild','length');
+  (function() {
+    var quotes = document.querySelectorAll(".quotes blockquote"),
+        l = quotes.length;
+        n = Math.floor(Math.random() * l);
+    quotes = Array.prototype.slice.apply(quotes);
+    quotes.forEach(function(el) { el.style.display = 'none'; });
+    quotes[n].style.display = 'block';
+  })();
   </script>
 </body>
 </html>
